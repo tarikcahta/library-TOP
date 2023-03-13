@@ -12,33 +12,25 @@
     <header><h1>Library project - TOP</h1></header>
 
     <main class="main">
-      <div class="btnDiv"><button class="btn">Add book</button></div>
+      <div class="btnDiv"><button id="btn" class="btn">Add book</button></div>
 
-      <div class="library">
-        <div class="book">
-          <p>Title: Atomic habits</p>
-          <p>Author: James Clear</p>
-          <p>Pages: 306</p>
-          <p>Published: 2018</p>
-          <a>Read: No</a>
-        </div>
-        <div class="book">
-          <p>Title: Atomic Atomic habits habits</p>
-          <p>Author: James Clear</p>
-          <p>Pages: 306</p>
-          <p>Published: 2018</p>
-          <a>Read: No</a>
-        </div>
+      <div id="library" class="library">
+     
       </div>
     </main>
 
-    <div class="book-input">
+    <div id="book-input" class="book-input">
       <form action="submit">
         <h3>Add new book</h3>
         <input placeholder="Title" type="text" name="title" id="title" />
         <input placeholder="Author" type="text" name="author" id="author" />
         <input placeholder="Pages" type="number" name="pages" id="pages" />
-        <input placeholder="Published" type="number" name="published" id="published" />
+        <input
+          placeholder="Published"
+          type="number"
+          name="published"
+          id="published"
+        />
         <div class="have-read">
           <label for="have-read">Have you read this book?</label>
           <input type="checkbox" name="have-read" id="read-btn" />
@@ -46,6 +38,6 @@
         <button class="btn" type="submit">Submit</button>
       </form>
     </div>
+    <script src="js/script.js"></script>
   </body>
-  <script src="js/script.js"></script>
 </html>

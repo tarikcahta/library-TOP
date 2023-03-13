@@ -23,8 +23,15 @@ main {
 
 .btn {
   background-color: rgb(20, 143, 143);
+  color: azure;
+  font-size: 0.8em;
   border-radius: 20px;
   padding: 1em 2em;
+}
+
+.btn-book-card {
+  font-size: 0.6em;
+  padding: 0.7em 1.5em;
 }
 
 .library {
@@ -46,8 +53,15 @@ main {
   border: 1px solid lightslategray;
 }
 
+#book-input {
+  display: none;
+}
+
 .book-input {
   /* display: none; */
+  position: absolute;
+  top: 45%;
+  left: 45%;
   background-color: antiquewhite;
   width: 250px;
   height: 300px;
