@@ -32,6 +32,7 @@ main {
 .btn-book-card {
   font-size: 0.6em;
   padding: 0.7em 1.5em;
+  margin-right: 10px;
 }
 
 .library {

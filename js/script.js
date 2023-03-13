@@ -14,14 +14,9 @@ const atomicHabits = new Book(
   false,
 );
 
-const displayDiv = document.getElementById('library');
-displayDiv.addEventListener('click', (e) => {
-  if (e.target && e.target.matches('button')) {
-    console.log(e);
-  }
-});
+let myLibrary = [];
 
-const myLibrary = [];
+const displayDiv = document.getElementById('library');
 
 myLibrary.push(atomicHabits);
 
@@ -35,7 +30,9 @@ function makeBookCard(book) {
   const author = document.createElement('p');
   const pages = document.createElement('p');
   const published = document.createElement('p');
+  const btnsDiv = document.createElement('div');
   const readLink = document.createElement('button');
+  const removeBtn = document.createElement('button');
 
   readLink.addEventListener('click', () => {
     if (book.read) {
@@ -49,6 +46,13 @@ function makeBookCard(book) {
     }
   });
 
+  removeBtn.addEventListener('click', () => {
+    // displayDiv.removeChild(cardDiv);
+    myLibrary = myLibrary.filter((item) => item.title !== title.textContent);
+    // eslint-disable-next-line no-use-before-define
+    renderDisplayOfBooks();
+  });
+
   title.textContent = `${book.title}`;
   author.textContent = `${book.author}`;
   pages.textContent = `${book.pages}`;
@@ -58,6 +62,7 @@ function makeBookCard(book) {
   } else {
     readLink.textContent = 'Not read';
   }
+  removeBtn.textContent = 'Remove';
   console.log(book);
 
   displayDiv.appendChild(cardDiv);
@@ -65,10 +70,14 @@ function makeBookCard(book) {
   cardDiv.appendChild(author);
   cardDiv.appendChild(pages);
   cardDiv.appendChild(published);
-  cardDiv.appendChild(readLink);
+  cardDiv.appendChild(btnsDiv);
+  btnsDiv.appendChild(readLink);
+  btnsDiv.appendChild(removeBtn);
   cardDiv.classList.add('book');
   readLink.classList.add('btn');
   readLink.classList.add('btn-book-card');
+  removeBtn.classList.add('btn');
+  removeBtn.classList.add('btn-book-card');
 }
 
 function renderDisplayOfBooks() {
@@ -78,7 +87,6 @@ function renderDisplayOfBooks() {
 
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
-  // resetDisplayOfBooks();
   renderDisplayOfBooks();
   document.querySelector('form').reset();
 }
@@ -102,18 +110,9 @@ form.addEventListener('submit', (ev) => {
   document.getElementById('book-input').style.display = 'none';
 });
 
-// Sad treba sve objekte iz library array-a raščlaniti
-// da naprave kartice na kojima pišu podaci o knjizi
-// kao bonus dodaj i dugme za brisanje koje radi te
-// dodaj dugme koje mijenja status pročitanosti
-
-// const cardDiv = document.getElementById('book');
 const addBookBtn = document.getElementById('btn');
 addBookBtn.addEventListener('click', () => {
   document.getElementById('book-input').style.display = 'block';
-  // window.addEventListener('click', () => {
-  //   document.getElementById('book-input').style.display = 'none';
-  // });
 });
 
 displayDiv.addEventListener('click', () => {
